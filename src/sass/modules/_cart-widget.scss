@@ -1,0 +1,109 @@
+.cart-widget {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-selected;
+    cursor: pointer;
+    user-select: none;
+
+    &--empty {
+        opacity: 0.75;
+        cursor: default;
+        pointer-events: none;
+
+        .cart-widget__empty-label {
+            display: block;
+        }
+
+        .cart-widget__product-count {
+            display: none;
+        }
+    }
+}
+
+.cart-widget svg.icon-bag {
+    width: 60px;
+    height: auto;
+    fill: $color-white;
+    transform: translateY(8px);
+}
+
+.cart-widget--empty svg.icon-bag {
+    width: 24px;
+    transform: translateY(2px);
+}
+
+.cart-widget__empty-label {
+    display: none;
+    margin-top: 6px;
+    font-size: 12px;
+    text-align: center;
+    transform: translateY(-4px);
+}
+
+.cart-widget__product-count b {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    background-color: $color-default;
+    transform: translateX(-20px);
+}
+
+.cart-widget__product-count span {
+    display: none;
+}
+
+@media (min-width: $desktop) {
+    .cart-widget {
+        width: 96px;
+        height: 96px;
+        border-radius: 48px;
+    }
+    
+    .cart-widget:not(.cart-widget--empty):hover {
+        background-color: $color-selected-hover;
+        cursor: pointer;
+    
+        & .cart-widget__product-count b {
+            background-color: $color-default-hover;
+        }
+    
+        & svg.icon-bag {
+            transform: translateY(1px) rotate(2deg);
+        }
+    }
+
+    .cart-widget svg.icon-bag {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.3s;
+    }
+    
+    .cart-widget__empty-label {
+        width: 70px;
+        transform: none;
+    }
+    
+    .cart-widget__product-count b {
+        width: 38px;
+        height: 38px;
+        border-radius: 19px;
+        font-size: 20px;
+        line-height: 38px;
+        margin-right: -29px;
+        transform: translateX(-31px);
+    }
+
+    .cart-widget__product-count span {
+        display: inline-block;
+        transform: translateY(-3px);
+    }
+}
