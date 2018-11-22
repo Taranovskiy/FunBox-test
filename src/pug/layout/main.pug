@@ -1,0 +1,22 @@
+include ../mixins.pug
+
+block variables
+
+doctype html
+html(lang="ru-RU")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width,initial-scale=1")
+        meta(name="keywords" content="")
+
+        title #{title}
+        //- link(rel="preload" as="font" href="fonts/exo2.0-thin.woff2")
+        link(rel="stylesheet" type="text/css" href="css/main.css")
+
+    body
+        main
+            block content
+
+        script(src="js/libs.min.js")
+        script(src="js/main.js")
+        block script
