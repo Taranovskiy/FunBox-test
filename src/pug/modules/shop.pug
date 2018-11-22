@@ -1,0 +1,85 @@
+include ./product
+
+-
+    var products = [
+        {
+            name: 'foie-gras',
+            taste: 'с фуа-гра',
+            size: 10,
+            bonus: 1,
+            weight: '0,5',
+            isDisabled: true,
+            img: 'cat',
+            description: 'Печень утки разварная с артишоками.',
+        },
+        {
+            name: 'fish',
+            taste: 'с рыбой',
+            size: 40,
+            bonus: 2,
+            weight: '2',
+            isDisabled: false,
+            img: 'cat',
+            description: 'Головы щучьи с чесноком да свежайшая сёмгушка.',
+        },
+        {
+            name: 'chicken',
+            taste: 'с курой',
+            size: 100,
+            bonus: 5,
+            weight: '5',
+            isDisabled: false,
+            img: 'cat',
+            description: 'Филе из цыплят с трюфелями в бульоне.',
+            extraInfo: 'заказчик доволен'
+        }
+    ];
+
+    //- склонение слов в зависимости от числительных
+    function declension(num, words) {
+        var result;
+        var count = num % 100;
+        if (count >= 5 && count <= 20) {
+            result = words['2'];
+        } else {
+            count = count % 10;
+            if (count == 1) {
+                result = words['0'];
+            } else if (count >= 2 && count <= 4) {
+                result = words['1'];
+            } else {
+                result = words['2'];
+            }
+        }
+        return result;
+    }
+
+    var bonusWords = [
+        'мышь',
+        'мыши',
+        'мышей'
+    ]
+
+    //- ¯\_(ツ)_/¯
+    var nyamushkaWords = [
+        'нямушка',
+        'нямушки',
+        'нямушек'
+    ]
+
+mixin product-list(products)
+    ul.shop__products
+        each product in products
+            li.shop__products-item
+                +product(product)
+
+
+template#shop
+    .shop
+        h1 Ты сегодня покормил кота?
+        //- a.shop__to-cart.shop__to-cart--empty
+        .shop__to-cart
+            include ./cart-widget
+        form
+            +product-list(products)
+

@@ -1,0 +1,12 @@
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1160px;
+    margin: auto;
+}
+
+@media (min-width: $desktop) {
+    .container {
+        padding: 0 20px;
+    }
+}

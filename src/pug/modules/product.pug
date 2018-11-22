@@ -1,0 +1,40 @@
+mixin product(product)
+    label.product
+        if product.isDisabled
+            input(type="checkbox"
+                name= product.name
+                disabled)
+        else 
+            input(type="checkbox"
+                name= product.name)
+        +icon('frame')
+        h3 Сказочное заморское яство
+        span.product__call-back Котэ не одобряет?
+        h2 Нямушка
+        b.product__taste= product.taste
+        b.product__info= product.size
+            span
+                | &nbsp;порций
+        if product.bonus > 1
+            b.product__info= product.bonus 
+                | &nbsp;
+                span= declension(product.bonus, bonusWords) + ' в подарок'
+        else
+            span.product__info= declension(product.bonus, bonusWords) + ' в подарок'
+        if product.extraInfo
+            span.product__info= product.extraInfo
+        .product__weight
+            span= product.weight
+            small кг
+        span.product__status.product__status--available Чего сидишь? Порадуй котэ,&nbsp;
+            b купи.
+        span.product__status.product__status--unavailable Печалька, #{product.taste} закончился.
+        span.product__description= product.description
+        picture
+            source(type="image/webp"
+                srcset="../../img/"+ product.img+ ".webp 1x,"+ "../../img/"+ product.img+ "@2x.webp 2x")
+            img.product__img(src="../../img/"+ product.img+ ".png"
+                            srcset="../../img/"+ product.img+ "@2x.png 2x"
+                            width="316" 
+                            height="270"
+                            alt="Картинка продукта")

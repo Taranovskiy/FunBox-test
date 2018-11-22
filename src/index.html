@@ -10,7 +10,63 @@
   <body>
     <main>
       <div class="container">
-      </div>
+        <template id="shop">
+          <div class="shop">
+            <h1>Ты сегодня покормил кота?</h1>
+            <div class="shop__to-cart"><a class="cart-widget">
+                <svg class="icon icon-bag ">
+                  <use xlink:href="img/svg/symbol/sprite.svg#bag"></use>
+                </svg><span class="cart-widget__empty-label">Корзина пуста</span>
+                <div class="cart-widget__product-count"><b>99</b><span>нямушек</span></div></a></div>
+            <form>
+                      <ul class="shop__products">
+                        <li class="shop__products-item">
+                                  <label class="product">
+                                    <input type="checkbox" name="foie-gras" disabled>
+                                    <svg class="icon icon-frame ">
+                                      <use xlink:href="img/svg/symbol/sprite.svg#frame"></use>
+                                    </svg>
+                                    <h3>Сказочное заморское яство</h3><span class="product__call-back">Котэ не одобряет?</span>
+                                    <h2>Нямушка</h2><b class="product__taste">с фуа-гра</b><b class="product__info">10<span>&nbsp;порций</span></b><span class="product__info">мышь в подарок</span>
+                                    <div class="product__weight"><span>0,5</span><small>кг</small></div><span class="product__status product__status--available">Чего сидишь? Порадуй котэ,&nbsp;<b>купи.</b></span><span class="product__status product__status--unavailable">Печалька, с фуа-гра закончился.</span><span class="product__description">Печень утки разварная с артишоками.</span>
+                                    <picture>
+                                      <source type="image/webp" srcset="../../img/cat.webp 1x,../../img/cat@2x.webp 2x"><img class="product__img" src="../../img/cat.png" srcset="../../img/cat@2x.png 2x" width="316" height="270" alt="Картинка продукта">
+                                    </picture>
+                                  </label>
+                        </li>
+                        <li class="shop__products-item">
+                                  <label class="product">
+                                    <input type="checkbox" name="fish">
+                                    <svg class="icon icon-frame ">
+                                      <use xlink:href="img/svg/symbol/sprite.svg#frame"></use>
+                                    </svg>
+                                    <h3>Сказочное заморское яство</h3><span class="product__call-back">Котэ не одобряет?</span>
+                                    <h2>Нямушка</h2><b class="product__taste">с рыбой</b><b class="product__info">40<span>&nbsp;порций</span></b><b class="product__info">2&nbsp;<span>мыши в подарок</span></b>
+                                    <div class="product__weight"><span>2</span><small>кг</small></div><span class="product__status product__status--available">Чего сидишь? Порадуй котэ,&nbsp;<b>купи.</b></span><span class="product__status product__status--unavailable">Печалька, с рыбой закончился.</span><span class="product__description">Головы щучьи с чесноком да свежайшая сёмгушка.</span>
+                                    <picture>
+                                      <source type="image/webp" srcset="../../img/cat.webp 1x,../../img/cat@2x.webp 2x"><img class="product__img" src="../../img/cat.png" srcset="../../img/cat@2x.png 2x" width="316" height="270" alt="Картинка продукта">
+                                    </picture>
+                                  </label>
+                        </li>
+                        <li class="shop__products-item">
+                                  <label class="product">
+                                    <input type="checkbox" name="chicken">
+                                    <svg class="icon icon-frame ">
+                                      <use xlink:href="img/svg/symbol/sprite.svg#frame"></use>
+                                    </svg>
+                                    <h3>Сказочное заморское яство</h3><span class="product__call-back">Котэ не одобряет?</span>
+                                    <h2>Нямушка</h2><b class="product__taste">с курой</b><b class="product__info">100<span>&nbsp;порций</span></b><b class="product__info">5&nbsp;<span>мышей в подарок</span></b><span class="product__info">заказчик доволен</span>
+                                    <div class="product__weight"><span>5</span><small>кг</small></div><span class="product__status product__status--available">Чего сидишь? Порадуй котэ,&nbsp;<b>купи.</b></span><span class="product__status product__status--unavailable">Печалька, с курой закончился.</span><span class="product__description">Филе из цыплят с трюфелями в бульоне.</span>
+                                    <picture>
+                                      <source type="image/webp" srcset="../../img/cat.webp 1x,../../img/cat@2x.webp 2x"><img class="product__img" src="../../img/cat.png" srcset="../../img/cat@2x.png 2x" width="316" height="270" alt="Картинка продукта">
+                                    </picture>
+                                  </label>
+                        </li>
+                      </ul>
+            </form>
+          </div>
+        </template>
+       </div>
     </main>
     <script src="js/libs.min.js"></script>
     <script src="js/main.js"></script>

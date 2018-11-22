@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100%;
+    font-family: $font-base;
+    font-size: 14px;
+    color: $color-white;
+    background-image: url("../img/background-pattern.jpg");
+    background-size: 70px 70px;
+    background-repeat: repeat;
+    background-color: $color-gray-dark;
+}
+
+main {
+    display: flex;
+    min-height: 100vh;
+    
+    &::after {
+        content: '';
+        z-index: -1;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    }
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+button {
+    border: none;
+    padding: 0; 
+    background: none;
+}
+
+@media (min-resolution: 1.5dppx) {
+    body {
+        background-image: url("../img/background-pattern@2x.jpg");
+    }
+}
