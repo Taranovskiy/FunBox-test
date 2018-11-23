@@ -1,0 +1,100 @@
+-
+    var products = [
+        {
+            name: 'foie-gras',
+            taste: 'с фуа-гра',
+            size: 10,
+            bonus: 1,
+            weight: '0,5',
+            isDisabled: true,
+            img: 'cat',
+            description: 'Печень утки разварная с артишоками.',
+        },
+        {
+            name: 'fish',
+            taste: 'с рыбой',
+            size: 40,
+            bonus: 2,
+            weight: '2',
+            isDisabled: false,
+            img: 'cat',
+            description: 'Головы щучьи с чесноком да свежайшая сёмгушка.',
+        },
+        {
+            name: 'chicken',
+            taste: 'с курой',
+            size: 100,
+            bonus: 5,
+            weight: '5',
+            isDisabled: false,
+            img: 'cat',
+            description: 'Филе из цыплят с трюфелями в бульоне.',
+            extraInfo: 'заказчик доволен'
+        }
+    ];
+
+    //- склонение слов в зависимости от числительных
+    function declension(num, words) {
+        var result;
+        var count = num % 100;
+        if (count >= 5 && count <= 20) {
+            result = words['2'];
+        } else {
+            count = count % 10;
+            if (count == 1) {
+                result = words['0'];
+            } else if (count >= 2 && count <= 4) {
+                result = words['1'];
+            } else {
+                result = words['2'];
+            }
+        }
+        return result;
+    }
+
+    var bonusWords = [
+        'мышь',
+        'мыши',
+        'мышей'
+    ]
+
+mixin cart-table(products)
+    table
+        each product in products
+            tbody(class="cart__product cart__product--"+product.name)
+                tr
+                    td.cart__thumbnail-cell(rowspan = "3")
+                        img(src="img/thumbnail.png" width="100" height="150")
+                    td
+                        | Нямушка&nbsp;
+                        strong #{product.taste}.
+                        <br>
+                        | #{product.description}
+                    td.cart__delete-cell(rowspan = "3")
+                        button
+                            +icon('delete')
+                        span Котэ не одобряет?
+                tr
+                    td
+                        b #{product.size}&nbsp;
+                        | порций. Вес:&nbsp; 
+                        b #{product.weight}&nbsp;
+                        | кг.
+                tr
+                    td.cart__bonus-cell
+                        | Подарок:&nbsp;
+                        b #{product.bonus}&nbsp;
+                        | #{declension(product.bonus, bonusWords)}.
+                tr
+                    td.cart__gap-row
+
+
+template#cart
+    .cart
+        h1 Ваши нямушки:
+        a.cart__go-back
+            +icon('back-arrow')
+            b К выбору нямушек
+        +cart-table(products)
+        .cart__btn-wrap
+            a.btn Оформить заказ

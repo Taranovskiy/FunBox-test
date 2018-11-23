@@ -10,20 +10,22 @@
   <body>
     <main>
       <div class="container">
-        <div class="greeting" id="greeting">
-          <h1>Добро пожаловать в магазин нямушек для ваших котэ!</h1>
-          <svg class="icon icon-cat-silhouette ">
-            <use xlink:href="img/svg/symbol/sprite.svg#cat-silhouette"></use>
-          </svg><a class="btn">К выбору нямушек!</a>
-          <div class="preloader">
-            <div class="preloader__wrap">
-              <div class="preloader__cube preloader__cube--1"></div>
-              <div class="preloader__cube preloader__cube--2"></div>
-              <div class="preloader__cube preloader__cube--4"></div>
-              <div class="preloader__cube preloader__cube--3"></div>
-            </div><span class="preloader__caption">Загружаем каталог...</span>
-          </div>
+        <div class="preloader">
+          <div class="preloader__wrap">
+            <div class="preloader__cube preloader__cube--1"></div>
+            <div class="preloader__cube preloader__cube--2"></div>
+            <div class="preloader__cube preloader__cube--4"></div>
+            <div class="preloader__cube preloader__cube--3"></div>
+          </div><span class="preloader__caption">Загружаем нямушки...</span>
         </div>
+        <template id="greeting">
+          <div class="greeting">
+            <h1>Добро пожаловать в магазин нямушек для ваших котэ!</h1>
+            <svg class="icon icon-cat-silhouette ">
+              <use xlink:href="img/svg/symbol/sprite.svg#cat-silhouette"></use>
+            </svg><a class="btn">К выбору нямушек!</a>
+          </div>
+        </template>
         <template id="shop">
           <div class="shop">
             <h1>Ты сегодня покормил кота?</h1>
@@ -78,6 +80,83 @@
                         </li>
                       </ul>
             </form>
+          </div>
+        </template>
+        <template id="cart">
+          <div class="cart">
+            <h1>Ваши нямушки:</h1><a class="cart__go-back">
+              <svg class="icon icon-back-arrow ">
+                <use xlink:href="img/svg/symbol/sprite.svg#back-arrow"></use>
+              </svg><b>К выбору нямушек</b></a>
+                    <table>
+                      <tbody class="cart__product cart__product--foie-gras">
+                        <tr>
+                          <td class="cart__thumbnail-cell" rowspan="3"><img src="img/thumbnail.png" width="100" height="150"></td>
+                          <td>Нямушка&nbsp;<strong>с фуа-гра.</strong><br>Печень утки разварная с артишоками.</td>
+                          <td class="cart__delete-cell" rowspan="3">
+                            <button>
+                              <svg class="icon icon-delete ">
+                                <use xlink:href="img/svg/symbol/sprite.svg#delete"></use>
+                              </svg>
+                            </button><span>Котэ не одобряет?</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><b>10&nbsp;</b>порций. Вес:&nbsp; <b>0,5&nbsp;</b>кг.</td>
+                        </tr>
+                        <tr>
+                          <td class="cart__bonus-cell">Подарок:&nbsp;<b>1&nbsp;</b>мышь.</td>
+                        </tr>
+                        <tr>
+                          <td class="cart__gap-row"></td>
+                        </tr>
+                      </tbody>
+                      <tbody class="cart__product cart__product--fish">
+                        <tr>
+                          <td class="cart__thumbnail-cell" rowspan="3"><img src="img/thumbnail.png" width="100" height="150"></td>
+                          <td>Нямушка&nbsp;<strong>с рыбой.</strong><br>Головы щучьи с чесноком да свежайшая сёмгушка.</td>
+                          <td class="cart__delete-cell" rowspan="3">
+                            <button>
+                              <svg class="icon icon-delete ">
+                                <use xlink:href="img/svg/symbol/sprite.svg#delete"></use>
+                              </svg>
+                            </button><span>Котэ не одобряет?</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><b>40&nbsp;</b>порций. Вес:&nbsp; <b>2&nbsp;</b>кг.</td>
+                        </tr>
+                        <tr>
+                          <td class="cart__bonus-cell">Подарок:&nbsp;<b>2&nbsp;</b>мыши.</td>
+                        </tr>
+                        <tr>
+                          <td class="cart__gap-row"></td>
+                        </tr>
+                      </tbody>
+                      <tbody class="cart__product cart__product--chicken">
+                        <tr>
+                          <td class="cart__thumbnail-cell" rowspan="3"><img src="img/thumbnail.png" width="100" height="150"></td>
+                          <td>Нямушка&nbsp;<strong>с курой.</strong><br>Филе из цыплят с трюфелями в бульоне.</td>
+                          <td class="cart__delete-cell" rowspan="3">
+                            <button>
+                              <svg class="icon icon-delete ">
+                                <use xlink:href="img/svg/symbol/sprite.svg#delete"></use>
+                              </svg>
+                            </button><span>Котэ не одобряет?</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><b>100&nbsp;</b>порций. Вес:&nbsp; <b>5&nbsp;</b>кг.</td>
+                        </tr>
+                        <tr>
+                          <td class="cart__bonus-cell">Подарок:&nbsp;<b>5&nbsp;</b>мышей.</td>
+                        </tr>
+                        <tr>
+                          <td class="cart__gap-row"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+            <div class="cart__btn-wrap"><a class="btn">Оформить заказ</a></div>
           </div>
         </template>
       </div>
