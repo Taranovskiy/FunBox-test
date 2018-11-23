@@ -1,0 +1,28 @@
+.btn {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin: 30px auto;
+    border-width: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    line-height: 50px;
+    vertical-align: middle;
+    font-size: 16px;
+    text-align: center;
+    color: $color-white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+    background-color: $color-default;
+    transition: background-color 0.4s;
+    cursor: default;
+    user-select: none;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: $color-default-hover;
+}
+
+a.btn {
+    cursor: pointer;
+}

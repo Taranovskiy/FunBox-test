@@ -1,0 +1,77 @@
+$cubeCount: 4;
+$animationDuration: 1.6s;
+$delayRange: ($animationDuration / 2);
+
+.preloader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preloader__caption {
+    margin-top: 6px;
+    font-size: 16px;
+    color: $color-default;
+}
+
+.preloader__wrap {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 30px;
+    position: relative;
+    transform: rotateZ(45deg);
+}
+
+.preloader__cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    transform: scale(1.1);
+}
+
+.preloader__cube::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    background-color: $color-selected-hover;
+    animation: sk-folding-cube-angle $animationDuration infinite linear both;
+    transform-origin: 100% 100%;
+}
+
+@for $i from 2 through $cubeCount {
+    .preloader__cube--#{$i} {
+        transform: scale(1.1) rotateZ((90deg * ($i - 1)));
+    }
+}
+
+@for $i from 2 through $cubeCount {
+    .preloader__cube--#{$i}:before {
+        animation-delay: ($delayRange / $cubeCount * ($i - 1));
+    }
+}
+
+@keyframes sk-folding-cube-angle {
+
+    0%,
+    10% {
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}

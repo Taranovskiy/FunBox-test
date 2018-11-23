@@ -10,6 +10,20 @@
   <body>
     <main>
       <div class="container">
+        <div class="greeting" id="greeting">
+          <h1>Добро пожаловать в магазин нямушек для ваших котэ!</h1>
+          <svg class="icon icon-cat-silhouette ">
+            <use xlink:href="img/svg/symbol/sprite.svg#cat-silhouette"></use>
+          </svg><a class="btn">К выбору нямушек!</a>
+          <div class="preloader">
+            <div class="preloader__wrap">
+              <div class="preloader__cube preloader__cube--1"></div>
+              <div class="preloader__cube preloader__cube--2"></div>
+              <div class="preloader__cube preloader__cube--4"></div>
+              <div class="preloader__cube preloader__cube--3"></div>
+            </div><span class="preloader__caption">Загружаем каталог...</span>
+          </div>
+        </div>
         <template id="shop">
           <div class="shop">
             <h1>Ты сегодня покормил кота?</h1>
@@ -66,7 +80,7 @@
             </form>
           </div>
         </template>
-       </div>
+      </div>
     </main>
     <script src="js/libs.min.js"></script>
     <script src="js/main.js"></script>

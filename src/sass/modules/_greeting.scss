@@ -1,0 +1,21 @@
+.greeting {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    a.btn {
+        // display: none;
+    }
+}
+
+.greeting h1 {
+    @include vis-hidden;
+}
+
+.greeting svg.icon-cat-silhouette {
+    margin-bottom: 60px;
+    fill: $color-default;
+}
