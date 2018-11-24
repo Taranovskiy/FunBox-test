@@ -1,3 +1,8 @@
+.cart {
+    animation-name: display;
+    animation-duration: 0.4s;
+}
+
 .cart h1 {
     margin: 40px 0;
     text-align: center;
@@ -96,6 +101,38 @@
     text-align: center;
 }
 
+.cart__success-notice {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/background-pattern.jpg");
+    background-size: 70px 70px;
+    background-repeat: repeat;
+
+    span {
+        text-align: center;
+        font-size: 20px;
+        color: $color-default;
+
+        b {
+            font-size: 22px;
+        }
+    }
+
+    &.active {
+        display: flex;
+        animation-name: display;
+        animation-duration: 0.2s;
+    }
+}
+
 @media (min-width: $tablet) {
 
     .cart__go-back {
@@ -180,5 +217,13 @@
             opacity: 1;
         }
     }
+}
 
+@keyframes display {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
