@@ -1,3 +1,7 @@
+.shop {
+    animation-name: display;
+    animation-duration: 0.4s;
+}
 .shop h1 {
     margin: 80px 0 22px;
     text-align: center;
@@ -64,5 +68,14 @@
         right: 20px;
         width: 96px;
         height: 96px;
+    }
+}
+
+@keyframes display {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
     }
 }
