@@ -22,8 +22,8 @@ export default class CartView extends AbstractView {
                             ${product.description ? product.description : ``}
                         </td>
                         <td class="cart__delete-cell" rowspan="3">
-                            <button >
-                                <svg class="icon icon-delete" id="delete-${product.name}">
+                            <button type="button" class="cart__delete-btn" id="delete-${product.name}">
+                                <svg class="icon icon-delete">
                                     <use xlink:href="img/svg/symbol/sprite.svg#delete"></use>
                                 </svg>
                             </button>
@@ -69,7 +69,7 @@ export default class CartView extends AbstractView {
     }
 
     bind() {
-        const deleteButtons = this.element.querySelectorAll(`button svg.icon-delete`);
+        const deleteButtons = this.element.querySelectorAll(`button.cart__delete-btn`);
         const backButton = this.element.querySelector(`a.cart__go-back`);
         const submitButton = this.element.querySelector(`.cart__btn-wrap a.btn`);
         const backAfterSubmitButton = this.element.querySelector(`.cart__success-notice a.btn`);

@@ -71,7 +71,7 @@ mixin cart-table(products)
                         <br>
                         | #{product.description}
                     td.cart__delete-cell(rowspan = "3")
-                        button
+                        button.cart__delete-btn(type="button" id="delete-"+product.name)
                             +icon('delete')
                         span Котэ не одобряет?
                 tr

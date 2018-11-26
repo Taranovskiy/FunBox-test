@@ -7,9 +7,7 @@ import AbstractView from "../abstractView";
 export default class Shop {
 
     constructor(state = initialState, data) {
-
         this.state = new Set(state);
-        // this.data = data;
         this.view = new ShopView(this.state, data);
     }
 
@@ -24,7 +22,7 @@ export default class Shop {
         this.view.onClickProductButton = (evt) => {
             const target = evt.currentTarget;
             const productName = target.name;
-            const label = target.labels[0];
+            const label = target.parentElement;
 
             label.classList.add(`no-hover`);
             label.addEventListener(`mouseleave`, () => label.classList.remove(`no-hover`));
