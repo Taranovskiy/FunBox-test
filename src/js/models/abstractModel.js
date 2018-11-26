@@ -1,4 +1,23 @@
-const adapter = (data) => ({'order': data});
+// @flow
+
+type LoadData = {
+    id: number,
+    name: string,
+    taste: string,
+    size: number,
+    bonus?: number,
+    weight: number,
+    isDisabled: boolean,
+    img: string,
+    description: string,
+    extraInfo?: string
+};
+
+type SendData = {
+    "order": string
+}
+
+const adapter = (data: string): {'order': string} => ({'order': data});
 
 export default class abstractModel {
     get urlRead() {
@@ -9,7 +28,7 @@ export default class abstractModel {
         throw new Error(`Define the URL for model`);
     }
 
-    load(url = this.urlRead) {
+    load(url: string = this.urlRead): Promise<LoadData> {
         return fetch(url)
             .then((resp) => {
                 if (!resp.ok) {
@@ -19,7 +38,7 @@ export default class abstractModel {
             });
     }
 
-    send(data) {
+    send(data: string): Promise<SendData> {
         const requestSettings = {
             body: JSON.stringify(adapter(data)),
             headers: {

@@ -1,3 +1,4 @@
+
 import App from "../../app";
 import initialState from "../../data/initialState";
 import ShopView from "./shopView";

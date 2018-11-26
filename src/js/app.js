@@ -1,4 +1,5 @@
 // @flow
+
 import AbstractModel from "./models/abstractModel";
 import Greeting from "./views/greeting/greeting";
 import Shop from "./views/shop/shop";
@@ -7,13 +8,11 @@ import Preloader from "./views/blocks/preloader/preloader";
 import {ControllerID} from "./data/enums";
 
 interface Model {
-    get urlRead():string;
-    get urlWrite():string;
-    load(): Promise<Data>;
-    send(): Promise<JSON>;
+    load(url?: string): Promise<LoadData>;
+    send(data: string): Promise<SendData>;
 };
 
-type Data = {
+type LoadData = {
     id: number,
     name: string,
     taste: string,
@@ -25,6 +24,10 @@ type Data = {
     description: string,
     extraInfo?: string
 };
+
+type SendData = {
+    "order": string
+}
 
 const getControllerIDFromHash = (hash: string): string => hash.replace(`#`, ``);
 const sleep = (ms: number): Promise<mixed> => new Promise((resolve) => setTimeout(resolve, ms));
@@ -47,10 +50,10 @@ class App {
         this.showPreloader();
         await sleep(2500);
         this.model.load()
-        .then((data: Data) => {
+        .then((data) => {
             return this.setup(data);
         })
-        .then((data: Data) => {
+        .then((data) => {
             const {newController, state}: {newController: string; state: ?string} = this._parseHashFromUrl();
             this.changeController(newController, state, data);
         })
@@ -59,7 +62,7 @@ class App {
         });
     }
 
-    setup(data: Data): Data {
+    setup(data: LoadData): LoadData {
         this.routes = {
             [ControllerID.GREETING]: Greeting,
             [ControllerID.SHOP]: Shop,
@@ -78,7 +81,7 @@ class App {
         return data;
     }
 
-    changeController(route: string = ``, state: ?string , data: Data): void {
+    changeController(route: string = ``, state: ?string , data: LoadData): void {
         const Controller: Function = this.routes[route];
         if (Controller) {
             new Controller(state, data).init() ;
