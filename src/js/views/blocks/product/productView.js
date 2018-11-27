@@ -16,7 +16,7 @@ export default class ProductView extends AbstractView {
                 return `мышь в подарок`;
             }
             if (bonusValue > 1) {
-                return `<b class="product__info">${bonusValue} <span>${declension(bonusValue, words)} в подарок</span></b>`;
+                return `<b>${bonusValue}</b> ${declension(bonusValue, words)} в подарок`;
             }
             return ``;
         };
