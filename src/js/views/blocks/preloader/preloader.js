@@ -15,15 +15,5 @@ export default class Preloader {
         AbstractView.setActiveView(this.view.element);
         this.view.showError();
     }
-
-    delay() {
-        console.log(`delay init`);
-        AbstractView.setActiveView(this.view.element);
-        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-        sleep(5000).then(() => {
-            console.log(`delay`);
-            return;
-        });
-    }
 }
 

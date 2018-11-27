@@ -23,6 +23,7 @@ export default class CartView extends AbstractView {
                         </td>
                         <td class="cart__delete-cell" rowspan="3">
                             <button type="button" class="cart__delete-btn" id="delete-${product.name}">
+                                <span>Удалить товар</span>
                                 <svg class="icon icon-delete">
                                     <use xlink:href="img/svg/symbol/sprite.svg#delete"></use>
                                 </svg>

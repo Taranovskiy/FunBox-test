@@ -35,7 +35,7 @@ const sleep = (ms: number): Promise<mixed> => new Promise((resolve) => setTimeou
 class App {
     model: Model;
     routes: {|
-        [key: string]: Greeting|Shop|Cart
+        [key: string]: Greeting | Shop | Cart
     |};
 
     constructor() {
@@ -50,16 +50,16 @@ class App {
         this.showPreloader();
         await sleep(2500);
         this.model.load()
-        .then((data) => {
-            return this.setup(data);
-        })
-        .then((data) => {
-            const {newController, state}: {newController: string; state: ?string} = this._parseHashFromUrl();
-            this.changeController(newController, state, data);
-        })
-        .catch((err: Error) => {
-            this.showPreloaderError();
-        });
+            .then((data) => {
+                return this.setup(data);
+            })
+            .then((data) => {
+                const {newController, state}: {newController: string; state: ?string} = this._parseHashFromUrl();
+                this.changeController(newController, state, data);
+            })
+            .catch((err: Error) => {
+                this.showPreloaderError();
+            });
     }
 
     setup(data: LoadData): LoadData {
@@ -73,7 +73,7 @@ class App {
             const oldController: string = this._getOldController(evt);
             const {newController, state}: {newController: string; state: ?string} = this._parseHashFromUrl();
 
-            if (oldController!== newController) {
+            if (oldController !== newController) {
                 this.changeController(newController, state, data);
             }
         };
@@ -81,15 +81,15 @@ class App {
         return data;
     }
 
-    changeController(route: string = ``, state: ?string , data: LoadData): void {
+    changeController(route: string = ``, state: ?string, data: LoadData): void {
         const Controller: Function = this.routes[route];
         if (Controller) {
-            new Controller(state, data).init() ;
+            new Controller(state, data).init();
         }
     }
 
     _parseHashFromUrl(): {newController: string, state: ?string} {
-        const hash: Array<string> = location.hash.split(`=`)
+        const hash: Array<string> = location.hash.split(`=`);
         const [controller: string, hashValue: string] = hash;
         return {
             newController: getControllerIDFromHash(controller),
