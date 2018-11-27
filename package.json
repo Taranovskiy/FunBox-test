@@ -9,8 +9,10 @@
     "build": "gulp build",
     "test": "npm run eslint && gulp test",
     "flow": "flow",
+    "flow stop": "flow stop",
     "json:server": "json-server --watch src/js/data/data.json",
-    "start": "gulp serve"
+    "start": "gulp serve",
+    "start:no-server": "gulp serve-no-server"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
@@ -18,13 +20,13 @@
     "babel-eslint": "10.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
     "babel-register": "6.26.0",
-    "browser-sync": "2.18.8",
+    "browser-sync": "2.26.3",
     "css-mqpacker": "6.0.0",
     "cwebp": "2.0.3",
     "del": "2.2.2",
-    "eslint": "3.19.0",
-    "eslint-config-htmlacademy": "0.2.x",
+    "eslint": "5.3.0",
     "eslint-plugin-flowtype": "3.2.0",
+    "eslint-plugin-import": "2.14.0",
     "flow-bin": "0.86.0",
     "flow-remove-types": "1.2.3",
     "gulp": "3.9.1",

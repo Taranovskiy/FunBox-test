@@ -195,6 +195,25 @@ gulp.task("serve", ["assemble", "jsonserver"], function() {
     gulp.watch("src/js/**/*.js", ["js-watch"]);
 });
 
+gulp.task("serve-no-server", ["assemble"], function() {
+    server.init({
+        server: "./build",
+        notify: false,
+        open: true,
+        port: 3502,
+        ui: false
+    });
+
+    gulp.watch("src/sass/**/*.{scss,sass}", ["style"]);
+    gulp.watch("src/pug/**/*.pug", ["pug"]);
+    gulp.watch("src/*.html").on("change", e => {
+        if (e.type !== "deleted") {
+            gulp.start("copy-html");
+        }
+    });
+    gulp.watch("src/js/**/*.js", ["js-watch"]);
+});
+
 gulp.task("database", function() {
     return gulp.src("src/js/data/data.json").pipe(serv.pipe());
 });
